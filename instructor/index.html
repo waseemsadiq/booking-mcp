@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructor Quick Start — WFCS Claude Agent</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>(function(){try{var t=localStorage.getItem('wfcs-docs-theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <div class="brand-logo" aria-hidden="true">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="brand-name">WFCS Booking</div>
+      <div class="brand-sub">Claude Agent</div>
+    </div>
+  </a>
+  <div class="header-spacer"></div>
+  <span class="role-badge" id="role-badge">Instructor</span>
+  <button onclick="logout()" class="header-btn">Log out</button>
+  <button id="theme-toggle" class="header-btn" title="Switch theme">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+    <span class="theme-label">Dark</span>
+  </button>
+</header>
+
+<div class="main-area no-sidebar">
+  <div class="content-wrapper">
+    <article class="prose">
+
+      <h1>Quick Start — Instructor</h1>
+      <p>You have all the customer prompts plus instructor-specific tools for sessions, attendance, and stats.</p>
+
+      <h2>Most Used Prompts</h2>
+
+      <div class="prompt-card">
+        <div class="prompt-card-meta">
+          <span class="difficulty-badge easy">Easy</span>
+        </div>
+        <h3>View My Sessions</h3>
+        <p>See everything you have coming up.</p>
+        <span class="prompt-text">Show my upcoming sessions</span>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-meta">
+          <span class="difficulty-badge easy">Easy</span>
+        </div>
+        <h3>Mark Attendance</h3>
+        <p>Record who turned up for a session.</p>
+        <span class="prompt-text">Mark attendance for my 10am yoga session today</span>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-meta">
+          <span class="difficulty-badge easy">Easy</span>
+        </div>
+        <h3>View Stats</h3>
+        <p>Quick snapshot of your teaching stats.</p>
+        <span class="prompt-text">Show my stats</span>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-meta">
+          <span class="difficulty-badge intermediate">Intermediate</span>
+        </div>
+        <h3>Session Details</h3>
+        <p>Who's booked in and how many to expect.</p>
+        <span class="prompt-text">I'm teaching yoga on Saturday at 10am. Who's booked in? How many students are expected?</span>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-meta">
+          <span class="difficulty-badge intermediate">Intermediate</span>
+        </div>
+        <h3>Performance Breakdown</h3>
+        <p>Detailed stats for a time period.</p>
+        <span class="prompt-text">Give me a detailed breakdown of my performance this quarter: sessions taught, students, attendance rates, no-shows</span>
+        <button class="copy-button" type="button">Copy</button>
+      </div>
+
+      <h2>Want to explore more?</h2>
+      <p>Browse all instructor prompts — sessions, attendance, statistics — plus everything customers can ask.</p>
+      <a href="prompts.html" class="btn-primary">View all prompts</a>
+
+    </article>
+  </div>
+</div>
+
+<script src="../assets/app.js?v=3"></script>
+<script>
+  document.querySelectorAll('.prompt-card').forEach(function (card) {
+    var btn = card.querySelector('.copy-button');
+    var textEl = card.querySelector('.prompt-text');
+    if (btn && textEl) {
+      btn.addEventListener('click', function () { copyPrompt(textEl.textContent, btn); });
+    }
+  });
+
+  requireAuth('instructor');
+</script>
+
+</body>
+</html>
