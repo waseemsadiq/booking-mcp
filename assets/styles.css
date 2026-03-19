@@ -985,6 +985,8 @@ a.sidebar-link {
 
 .main-area.no-sidebar .content-wrapper {
   max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Prompt role sections ───────────────────────────────── */
