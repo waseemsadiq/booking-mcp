@@ -10,10 +10,10 @@
    ```
 3. In repo Settings → Pages:
    - Source: **GitHub Actions**
-   - Custom domain: `booking-docs.wellfoundation.org.uk`
+   - Custom domain: `booking-mcp-docs.wellfoundation.org.uk`
    - Enforce HTTPS: ✓
-4. In Cloudflare DNS: add CNAME `booking-docs` → `waseemsadiq.github.io`
-5. Verify: `https://booking-docs.wellfoundation.org.uk/` loads the login page
+4. In Cloudflare DNS: add CNAME `booking-mcp-docs` → `waseemsadiq.github.io`
+5. Verify: `https://booking-mcp-docs.wellfoundation.org.uk/` loads the login page
 
 ---
 
@@ -31,7 +31,7 @@
 
 - [ ] Push all code to main/master branch
 - [ ] Verify GitHub Actions deploy completes (Actions tab → green tick)
-- [ ] Test login at `https://booking-docs.wellfoundation.org.uk/`
+- [ ] Test login at `https://booking-mcp-docs.wellfoundation.org.uk/`
 - [ ] Test all 4 role paths with real accounts
 - [ ] Announce to users: "Your Claude agent is ready — visit [URL] to get started"
 

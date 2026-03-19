@@ -2,7 +2,7 @@
 
 A role-aware onboarding site for The Well Foundation's Claude agent. Users log in with their existing WFCS Booking account, get redirected to their role-specific page, and see curated prompts they can copy directly into Claude.
 
-Live at: **[booking-docs.wellfoundation.org.uk](https://booking-docs.wellfoundation.org.uk/)**
+Live at: **[booking-mcp-docs.wellfoundation.org.uk](https://booking-mcp-docs.wellfoundation.org.uk/)**
 
 ---
 
@@ -67,7 +67,7 @@ booking-mcp-docs/
 │   └── LAUNCHING.md        # Launch and deployment checklist
 ├── .github/workflows/
 │   └── deploy.yml          # GitHub Pages deploy on push to master
-└── CNAME                   # booking-docs.wellfoundation.org.uk
+└── CNAME                   # booking-mcp-docs.wellfoundation.org.uk
 ```
 
 ---
@@ -104,7 +104,7 @@ Difficulty values: `easy` | `intermediate` | `advanced`
 Hosted on GitHub Pages with a custom domain via Cloudflare.
 
 - Push to `master` → GitHub Actions deploys automatically (see `.github/workflows/deploy.yml`)
-- Custom domain: `booking-docs.wellfoundation.org.uk` (Cloudflare CNAME → `waseemsadiq.github.io`)
+- Custom domain: `booking-mcp-docs.wellfoundation.org.uk` (Cloudflare CNAME → `waseemsadiq.github.io`)
 - HTTPS enforced via GitHub Pages settings
 
 **Required repository secret:**
