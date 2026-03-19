@@ -368,6 +368,14 @@ function filterByCategory(category, clickedBtn) {
   renderPrompts();
 }
 
+var DIFFICULTY_ORDER = { easy: 0, intermediate: 1, advanced: 2 };
+
+function sortByDifficulty(arr) {
+  return arr.slice().sort(function (a, b) {
+    return (DIFFICULTY_ORDER[a.difficulty] || 0) - (DIFFICULTY_ORDER[b.difficulty] || 0);
+  });
+}
+
 function renderQuickStart(sections, limit) {
   var container = document.getElementById("quick-start-grid");
   if (!container) return;
@@ -384,15 +392,16 @@ function renderQuickStart(sections, limit) {
     });
   });
 
-  // Fisher-Yates shuffle
+  // Fisher-Yates shuffle for variety, then sort easy → advanced
   for (var i = all.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var tmp = all[i]; all[i] = all[j]; all[j] = tmp;
   }
+  var selected = sortByDifficulty(all.slice(0, limit || 12));
 
   var grid = document.createElement("div");
   grid.className = "prompts-grid";
-  all.slice(0, limit || 12).forEach(function (prompt) {
+  selected.forEach(function (prompt) {
     grid.appendChild(buildPromptCard(prompt));
   });
   container.replaceChildren(grid);
@@ -430,6 +439,8 @@ function renderPrompts() {
 
     if (results.length === 0) return;
     hasResults = true;
+
+    results = sortByDifficulty(results);
 
     var sectionEl = document.createElement("div");
     sectionEl.className = "prompt-section";
