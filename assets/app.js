@@ -243,6 +243,8 @@ async function requireAuth(expectedRole) {
       : data.first_name
         ? data.first_name + " " + data.last_name
         : "";
+    var isGlobalInstructor = !!(data.user && data.user.is_global_instructor);
+    var isInstructor = role === "instructor" || isGlobalInstructor;
 
     // Update role badge
     var badge = document.getElementById("role-badge");
@@ -252,7 +254,7 @@ async function requireAuth(expectedRole) {
     var nameEl = document.getElementById("user-name");
     if (nameEl && name) nameEl.textContent = name;
 
-    return { role: role, name: name, token: token };
+    return { role: role, name: name, token: token, isInstructor: isInstructor };
   } catch (err) {
     clearToken();
     window.location.href = siteRoot() + "index.html";
@@ -293,6 +295,64 @@ function copyPrompt(text, btn) {
 
 /* ── Prompt rendering (prompts.html pages) ─────────────── */
 var currentFilter = "all";
+var activeSections = [];
+
+function getSectionsForRole(role, isInstructor) {
+  var sections = [];
+  if (role === "super_admin") {
+    sections.push({ key: "super-admin", label: "Super Admin prompts" });
+  }
+  if (role === "super_admin" || role === "admin") {
+    sections.push({ key: "admin", label: "Admin prompts" });
+  }
+  // super_admin always sees instructor prompts; so do instructors and admin+instructor combos
+  if (role === "super_admin" || role === "instructor" || isInstructor) {
+    sections.push({ key: "instructor", label: "Instructor prompts" });
+  }
+  sections.push({ key: "customer", label: "Customer prompts" });
+  return sections;
+}
+
+function buildFilterChips() {
+  var container = document.querySelector(".filter-tags");
+  if (!container || !activeSections.length) return;
+
+  // Collect unique categories in order across all active sections
+  var seen = Object.create(null);
+  var categories = [];
+  activeSections.forEach(function (section) {
+    var prompts = promptsDatabase[section.key];
+    if (!prompts) return;
+    Object.keys(prompts).forEach(function (cat) {
+      if (!seen[cat]) {
+        seen[cat] = true;
+        categories.push(cat);
+      }
+    });
+  });
+
+  container.replaceChildren();
+
+  var allBtn = document.createElement("button");
+  allBtn.className = "filter-tag active";
+  allBtn.type = "button";
+  allBtn.textContent = "All";
+  allBtn.addEventListener("click", function () {
+    filterByCategory("all", allBtn);
+  });
+  container.appendChild(allBtn);
+
+  categories.forEach(function (cat) {
+    var btn = document.createElement("button");
+    btn.className = "filter-tag";
+    btn.type = "button";
+    btn.textContent = categoryLabel(cat);
+    btn.addEventListener("click", function () {
+      filterByCategory(cat, btn);
+    });
+    container.appendChild(btn);
+  });
+}
 
 function filterByCategory(category, clickedBtn) {
   currentFilter = category;
@@ -305,43 +365,61 @@ function filterByCategory(category, clickedBtn) {
 
 function renderPrompts() {
   var container = document.getElementById("prompts-container");
-  if (!container || typeof allPrompts === "undefined") return;
+  if (!container || !activeSections.length) return;
 
   var searchTerm = "";
   var searchEl = document.getElementById("prompt-search");
   if (searchEl) searchTerm = searchEl.value.toLowerCase();
 
-  // Collect matching prompts
-  var results = [];
-  Object.keys(allPrompts).forEach(function (category) {
-    if (currentFilter !== "all" && currentFilter !== category) return;
-    allPrompts[category].forEach(function (prompt) {
-      if (!searchTerm || prompt.text.toLowerCase().includes(searchTerm)) {
-        results.push({
-          text: prompt.text,
-          difficulty: prompt.difficulty,
-          category: category,
-        });
-      }
-    });
-  });
-
-  // Clear container using DOM method (no innerHTML)
   container.replaceChildren();
 
-  if (results.length === 0) {
+  var hasResults = false;
+
+  activeSections.forEach(function (section) {
+    var prompts = promptsDatabase[section.key];
+    if (!prompts) return;
+
+    var results = [];
+    Object.keys(prompts).forEach(function (category) {
+      if (currentFilter !== "all" && currentFilter !== category) return;
+      prompts[category].forEach(function (prompt) {
+        if (!searchTerm || prompt.text.toLowerCase().includes(searchTerm)) {
+          results.push({
+            text: prompt.text,
+            difficulty: prompt.difficulty,
+            category: category,
+          });
+        }
+      });
+    });
+
+    if (results.length === 0) return;
+    hasResults = true;
+
+    var sectionEl = document.createElement("div");
+    sectionEl.className = "prompt-section";
+
+    var titleEl = document.createElement("h2");
+    titleEl.className = "prompt-section-title";
+    titleEl.textContent = section.label;
+    sectionEl.appendChild(titleEl);
+
+    var grid = document.createElement("div");
+    grid.className = "prompts-grid";
+    results.forEach(function (prompt) {
+      grid.appendChild(buildPromptCard(prompt));
+    });
+    sectionEl.appendChild(grid);
+    container.appendChild(sectionEl);
+  });
+
+  if (!hasResults) {
     var empty = document.createElement("p");
     empty.className = "prompts-empty";
     empty.textContent =
       "No prompts found. Try a different search term or filter.";
     container.appendChild(empty);
-    return;
   }
-
-  results.forEach(function (prompt) {
-    var card = buildPromptCard(prompt);
-    container.appendChild(card);
-  });
 }
 
 function buildPromptCard(prompt) {

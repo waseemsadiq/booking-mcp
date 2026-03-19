@@ -60,14 +60,14 @@
 </div>
 
 <script src="../assets/prompts-data.js"></script>
-<script src="../assets/app.js?v=3"></script>
+<script src="../assets/app.js?v=4"></script>
 <script>
-  // Set prompts for this role — prompts-data.js defines promptsDatabase
-  var allPrompts = promptsDatabase.customer;
-
   document.getElementById('prompt-search').addEventListener('input', renderPrompts);
 
-  requireAuth('customer').then(function () {
+  requireAuth('customer').then(function (auth) {
+    if (!auth) return;
+    activeSections = getSectionsForRole(auth.role, auth.isInstructor);
+    buildFilterChips();
     renderPrompts();
   });
 </script>
