@@ -117,15 +117,12 @@ var promptsDatabase = {
     bookings: [
       { text: 'List all bookings for May', difficulty: 'easy' },
       { text: 'Show bookings waiting for payment', difficulty: 'easy' },
-      { text: 'A customer wants to cancel their booking for the summer camp due to injury. Process a full refund and show them the refund status', difficulty: 'intermediate' },
       { text: 'Show me all bookings for the Saturday morning yoga class. Who\'s confirmed and who\'s pending payment?', difficulty: 'intermediate' },
-      { text: 'Process a refund for booking #123 and update their account credit', difficulty: 'intermediate' },
       { text: 'Show me all unpaid bookings older than 7 days', difficulty: 'easy' },
       { text: 'Show me all bookings for today across all activities', difficulty: 'easy' }
     ],
     reports: [
       { text: 'Show me June booking numbers', difficulty: 'easy' },
-      { text: 'What were our payments last month?', difficulty: 'easy' },
       { text: 'Generate a report of all bookings for the \'Beginner Yoga\' activity, grouped by session date, showing confirmed/pending numbers', difficulty: 'intermediate' },
       { text: 'Export an attendance report for the past 3 months. I need: activity name, session date, students attended, no-shows', difficulty: 'intermediate' },
       { text: 'Show me revenue breakdown by activity for Q2. Which activities made the most money?', difficulty: 'advanced' },
@@ -134,12 +131,6 @@ var promptsDatabase = {
     'gift-aid': [
       { text: 'Show Gift Aid overview', difficulty: 'easy' },
       { text: 'How much Gift Aid have we claimed this year? Show me which customers have declared and their amounts', difficulty: 'intermediate' }
-    ],
-    withdrawals: [
-      { text: 'List pending withdrawal requests', difficulty: 'easy' },
-      { text: 'Approve withdrawal #5 for Sarah', difficulty: 'easy' },
-      { text: 'Show me all pending instructor withdrawal requests with amounts. Which ones are ready to process?', difficulty: 'intermediate' },
-      { text: 'Process the withdrawal request from our instructor Emma for £450 and confirm it\'s been sent', difficulty: 'intermediate' }
     ],
     notifications: [
       { text: 'Send a reminder email to all customers about next weekend\'s classes', difficulty: 'intermediate' },
