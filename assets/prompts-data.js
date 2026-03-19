@@ -74,8 +74,8 @@ var promptsDatabase = {
       { text: 'How many sessions have I taught this month?', difficulty: 'easy' },
       { text: 'What\'s my attendance rate?', difficulty: 'easy' },
       { text: 'Which of my activities is most popular?', difficulty: 'easy' },
-      { text: 'Give me a detailed breakdown of my performance this quarter: sessions taught, students, attendance rates, no-shows', difficulty: 'intermediate' },
-      { text: 'Show me which students attend most regularly', difficulty: 'intermediate' }
+      { text: 'Give me a detailed breakdown of my performance this quarter: sessions taught, attendees, attendance rates, no-shows', difficulty: 'intermediate' },
+      { text: 'Show me which participants attend most regularly', difficulty: 'intermediate' }
     ]
   },
 
@@ -115,7 +115,7 @@ var promptsDatabase = {
     reports: [
       { text: 'Show me June booking numbers', difficulty: 'easy' },
       { text: 'Generate a report of all bookings for the \'Beginner Yoga\' activity, grouped by session date, showing confirmed/pending numbers', difficulty: 'intermediate' },
-      { text: 'Export an attendance report for the past 3 months. I need: activity name, session date, students attended, no-shows', difficulty: 'intermediate' },
+      { text: 'Export an attendance report for the past 3 months. I need: activity name, session date, attendees, no-shows', difficulty: 'intermediate' },
       { text: 'Show me revenue breakdown by activity for Q2. Which activities made the most money?', difficulty: 'advanced' },
       { text: 'Which activity had the highest attendance rate this month?', difficulty: 'easy' }
     ],
