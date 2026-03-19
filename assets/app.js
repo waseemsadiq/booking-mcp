@@ -251,13 +251,9 @@ async function requireAuth(expectedRole) {
     var isGlobalInstructor = !!(data.user && data.user.is_global_instructor);
     var isInstructor = role === "instructor" || isGlobalInstructor;
 
-    // Update role badge
+    // Update role badge with user's name
     var badge = document.getElementById("role-badge");
-    if (badge) badge.textContent = roleLabel(role);
-
-    // Update user name if element exists
-    var nameEl = document.getElementById("user-name");
-    if (nameEl && name) nameEl.textContent = name;
+    if (badge) badge.textContent = name || roleLabel(role);
 
     return { role: role, name: name, token: token, isInstructor: isInstructor };
   } catch (err) {
