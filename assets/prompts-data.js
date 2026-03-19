@@ -55,36 +55,27 @@ var promptsDatabase = {
     sessions: [
       { text: 'Show my upcoming sessions', difficulty: 'easy' },
       { text: 'What sessions do I have this week?', difficulty: 'easy' },
-      { text: 'Show me all past sessions', difficulty: 'easy' },
-      { text: 'I\'m teaching yoga on Saturday at 10am. Who\'s booked in? How many students are expected?', difficulty: 'intermediate' },
+      { text: 'Show all confirmed attendees for my next Friday oldies football session', difficulty: 'easy' },
+      { text: 'How many spaces are still available in my Tuesday morning yoga class?', difficulty: 'easy' },
+      { text: 'I\'m teaching yoga on Saturday at 10am. Who\'s booked in and how many spaces are left?', difficulty: 'intermediate' },
       { text: 'Give me a summary of all my sessions for March with participant numbers', difficulty: 'intermediate' },
       { text: 'Which of my sessions has the most bookings?', difficulty: 'easy' }
     ],
     attendance: [
       { text: 'Mark attendance for my 10am yoga session today', difficulty: 'easy' },
-      { text: '10 people attended, 2 no-shows', difficulty: 'easy' },
-      { text: 'I\'m teaching yoga at 10am today. Can you show me who\'s booked, then help me mark who attended?', difficulty: 'intermediate' },
+      { text: 'Mark Joe Bloggs as absent from today\'s session — everyone else attended', difficulty: 'easy' },
+      { text: 'Show me who\'s booked into today\'s session, then help me mark attendance', difficulty: 'intermediate' },
       { text: 'I had some no-shows today. Mark these people: Emma (no-show), Jack (attended), Sarah (attended)', difficulty: 'intermediate' },
-      { text: 'Here\'s my attendance: attended: [names], no-shows: [names]. Record this and show me the updated stats', difficulty: 'intermediate' }
+      { text: 'Who hasn\'t attended any sessions in the last month?', difficulty: 'intermediate' },
+      { text: 'Show me attendance for last Tuesday\'s session', difficulty: 'easy' }
     ],
     statistics: [
       { text: 'Show my stats', difficulty: 'easy' },
       { text: 'How many sessions have I taught this month?', difficulty: 'easy' },
       { text: 'What\'s my attendance rate?', difficulty: 'easy' },
+      { text: 'Which of my activities is most popular?', difficulty: 'easy' },
       { text: 'Give me a detailed breakdown of my performance this quarter: sessions taught, students, attendance rates, no-shows', difficulty: 'intermediate' },
-      { text: 'Which of my activities is most popular?', difficulty: 'easy' }
-    ],
-    activities: [
-      { text: 'Show me yoga classes available next month', difficulty: 'easy' },
-      { text: 'What pilates sessions can I book this weekend?', difficulty: 'easy' },
-      { text: 'Find all activities at Bellshill venue', difficulty: 'easy' }
-    ],
-    bookings: [
-      { text: 'Show my upcoming bookings', difficulty: 'easy' }
-    ],
-    credit: [
-      { text: 'What\'s my credit balance?', difficulty: 'easy' },
-      { text: 'Show my credit history', difficulty: 'easy' }
+      { text: 'Show me which students attend most regularly', difficulty: 'intermediate' }
     ]
   },
 
