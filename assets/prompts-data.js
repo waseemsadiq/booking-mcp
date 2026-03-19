@@ -183,8 +183,8 @@ var promptsDatabase = {
     withdrawals: [
       { text: 'List pending withdrawal requests', difficulty: 'easy' },
       { text: 'Approve withdrawal #5 for Sarah', difficulty: 'easy' },
-      { text: 'Show me all pending instructor withdrawal requests with amounts. Which ones are ready to process?', difficulty: 'intermediate' },
-      { text: 'Process the withdrawal request from our instructor Emma for £450 and confirm it\'s been sent', difficulty: 'intermediate' }
+      { text: 'Show me all pending customer withdrawal requests with amounts. Which ones are ready to process?', difficulty: 'intermediate' },
+      { text: 'Process the withdrawal request from Emma for £450 and confirm it\'s been sent', difficulty: 'intermediate' }
     ],
     notifications: [
       { text: 'Send a reminder email to all customers about next weekend\'s classes', difficulty: 'intermediate' },
