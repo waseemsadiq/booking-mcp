@@ -1084,6 +1084,7 @@ a.sidebar-link {
   font-weight: 500;
   font-family: inherit;
   transition: background var(--transition);
+  align-self: flex-start;
 }
 
 .copy-button:hover { background: var(--accent-hover); }
