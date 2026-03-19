@@ -12,7 +12,7 @@
    - Source: **GitHub Actions**
    - Custom domain: `booking-mcp-docs.wellfoundation.org.uk`
    - Enforce HTTPS: ✓
-4. In Cloudflare DNS: add CNAME `booking-mcp-docs` → `waseemsadiq.github.io`
+4. In Cloudflare DNS: add CNAME `booking-mcp-docs` → `waseemsadiq.github.io` (for the MCP docs site — separate from `booking-docs` which is the admin docs)
 5. Verify: `https://booking-mcp-docs.wellfoundation.org.uk/` loads the login page
 
 ---
