@@ -38,6 +38,12 @@ const ROLE_MAP = {
 (function initTheme() {
   var btn = document.getElementById("theme-toggle");
   if (!btn) return;
+  var lbl = btn.querySelector(".theme-label");
+
+  // Sync label with whatever theme was set by the inline script in <head>
+  var initial = document.documentElement.getAttribute("data-theme");
+  if (lbl) lbl.textContent = initial === "dark" ? "Light" : "Dark";
+
   btn.addEventListener("click", function () {
     var current = document.documentElement.getAttribute("data-theme");
     var next = current === "dark" ? "light" : "dark";
@@ -45,7 +51,6 @@ const ROLE_MAP = {
     try {
       localStorage.setItem("wfcs-docs-theme", next);
     } catch (e) {}
-    var lbl = btn.querySelector(".theme-label");
     if (lbl) lbl.textContent = next === "dark" ? "Light" : "Dark";
   });
 })();
