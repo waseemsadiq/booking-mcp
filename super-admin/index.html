@@ -20,6 +20,7 @@
     </div>
   </a>
   <div class="header-spacer"></div>
+  <a href="prompts.html" class="header-btn">All prompts</a>
   <span class="role-badge" id="role-badge">Super Admin</span>
   <button onclick="logout()" class="header-btn">Log out</button>
   <button id="theme-toggle" class="header-btn" title="Switch theme">
@@ -38,99 +39,28 @@
     <article class="prose">
 
       <h1>Quick Start — Super Admin</h1>
-      <p>You have full access including payment settings. Here are the most commonly used prompts to get you started.</p>
+      <p>You have full access including payment settings. Here are 12 prompts to get you started — refreshed each visit.</p>
 
-      <h2>Most Used Prompts</h2>
+      <h2>Sample Prompts</h2>
 
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge easy">Easy</span>
-        </div>
-        <h3>List Activities</h3>
-        <p>Get an overview of all published activities.</p>
-        <span class="prompt-text">List all activities</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge easy">Easy</span>
-        </div>
-        <h3>Create an Activity</h3>
-        <p>Set up a new bookable class or session.</p>
-        <span class="prompt-text">Create a new yoga class: 'Beginner Yoga', £25, Bellshill venue, Saturdays 10-11am</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge easy">Easy</span>
-        </div>
-        <h3>Manage Withdrawals</h3>
-        <p>See what instructor withdrawal requests are waiting.</p>
-        <span class="prompt-text">List pending withdrawal requests</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge intermediate">Intermediate</span>
-        </div>
-        <h3>Send a Notification</h3>
-        <p>Claude always shows a preview first — you confirm, then it sends.</p>
-        <span class="prompt-text">I want to send a message to everyone booked in our Saturday morning yoga class. Subject: 'Venue Change - Important Update', Body: 'We've moved Saturday yoga to the new studio. See you there!' Show me who'll receive this before I send.</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge easy">Easy</span>
-        </div>
-        <h3>Show Stripe Configuration</h3>
-        <p>Check current payment settings — available to super admins only.</p>
-        <span class="prompt-text">Show current payment settings</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge easy">Easy</span>
-        </div>
-        <h3>Update Stripe Keys</h3>
-        <p>Rotate API keys after migrating to a new Stripe account.</p>
-        <span class="prompt-text">We've migrated to a new Stripe account. Update the API keys to: public=[key], secret=[key]</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
-
-      <div class="prompt-card">
-        <div class="prompt-card-meta">
-          <span class="difficulty-badge advanced">Advanced</span>
-        </div>
-        <h3>Create Activity + Generate Sessions</h3>
-        <p>Full workflow: create activity, generate sessions, confirm before saving.</p>
-        <span class="prompt-text">Create 'Pilates Advanced': £35, max 12 people, Bellshill, Friday 7-8pm. Once created, generate sessions for the next 12 weeks and confirm before saving.</span>
-        <button class="copy-button" type="button">Copy</button>
-      </div>
+      <div id="quick-start-grid"></div>
 
       <h2>Want to explore more?</h2>
-      <p>Browse 70+ prompts — all admin capabilities plus payment settings and Stripe configuration.</p>
+      <p>Browse the full library — all admin capabilities plus payment settings and Stripe configuration.</p>
       <a href="prompts.html" class="btn-primary">View all prompts</a>
 
     </article>
   </div>
 </div>
 
-<script src="../assets/app.js?v=3"></script>
+<script src="../assets/prompts-data.js"></script>
+<script src="../assets/app.js?v=4"></script>
 <script>
-  document.querySelectorAll('.prompt-card').forEach(function (card) {
-    var btn = card.querySelector('.copy-button');
-    var textEl = card.querySelector('.prompt-text');
-    if (btn && textEl) {
-      btn.addEventListener('click', function () { copyPrompt(textEl.textContent, btn); });
-    }
+  requireAuth('super_admin').then(function (auth) {
+    if (!auth) return;
+    activeSections = getSectionsForRole(auth.role, auth.isInstructor);
+    renderQuickStart(activeSections, 12);
   });
-
-  requireAuth('super_admin');
 </script>
 
 </body>

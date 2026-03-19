@@ -368,6 +368,36 @@ function filterByCategory(category, clickedBtn) {
   renderPrompts();
 }
 
+function renderQuickStart(sections, limit) {
+  var container = document.getElementById("quick-start-grid");
+  if (!container) return;
+
+  // Collect all prompts across all accessible sections
+  var all = [];
+  sections.forEach(function (section) {
+    var prompts = promptsDatabase[section.key];
+    if (!prompts) return;
+    Object.keys(prompts).forEach(function (category) {
+      prompts[category].forEach(function (prompt) {
+        all.push({ text: prompt.text, difficulty: prompt.difficulty, category: category });
+      });
+    });
+  });
+
+  // Fisher-Yates shuffle
+  for (var i = all.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = all[i]; all[i] = all[j]; all[j] = tmp;
+  }
+
+  var grid = document.createElement("div");
+  grid.className = "prompts-grid";
+  all.slice(0, limit || 12).forEach(function (prompt) {
+    grid.appendChild(buildPromptCard(prompt));
+  });
+  container.replaceChildren(grid);
+}
+
 function renderPrompts() {
   var container = document.getElementById("prompts-container");
   if (!container || !activeSections.length) return;

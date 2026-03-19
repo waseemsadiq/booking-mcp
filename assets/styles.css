@@ -1050,13 +1050,13 @@ a.sidebar-link {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 6px;
+  margin: 0;
 }
 
 .prompt-card p {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  margin: 0 0 10px;
+  margin: 0;
 }
 
 .prompt-text {
@@ -1182,11 +1182,10 @@ a.sidebar-link {
   grid-column: 1 / -1;
 }
 
-/* ── Quick start link button ───────────────────────────── */
-.btn-outline {
+/* ── Link buttons ───────────────────────────────────────── */
+.btn-outline,
+.btn-primary {
   display: inline-block;
-  border: 1px solid var(--accent);
-  color: var(--accent);
   padding: 8px 18px;
   border-radius: var(--radius);
   text-decoration: none;
@@ -1195,6 +1194,22 @@ a.sidebar-link {
   transition: all var(--transition);
 }
 
+.btn-outline {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
 .btn-outline:hover {
   background: var(--accent-subtle);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
 }
