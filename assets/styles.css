@@ -450,7 +450,6 @@ a.sidebar-link {
 .prose p {
   margin-bottom: 16px;
   color: var(--text-secondary);
-  max-width: var(--content-max);
 }
 
 .prose a {
