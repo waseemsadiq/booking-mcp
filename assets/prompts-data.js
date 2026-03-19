@@ -166,8 +166,9 @@ var promptsDatabase = {
     bookings: [
       { text: 'List all bookings for May', difficulty: 'easy' },
       { text: 'Show bookings waiting for payment', difficulty: 'easy' },
-      { text: 'A customer wants to cancel their booking for the summer camp due to injury. Process a full refund.', difficulty: 'intermediate' },
-      { text: 'Show me all bookings for the Saturday morning yoga class. Who\'s confirmed and who\'s pending?', difficulty: 'intermediate' }
+      { text: 'A customer wants to cancel their booking for the summer camp due to injury. Process a full refund and show them the refund status', difficulty: 'intermediate' },
+      { text: 'Show me all bookings for the Saturday morning yoga class. Who\'s confirmed and who\'s pending?', difficulty: 'intermediate' },
+      { text: 'Process a refund for booking #123 and update their account credit', difficulty: 'intermediate' }
     ],
     reports: [
       { text: 'Show me June booking numbers', difficulty: 'easy' },
@@ -181,7 +182,9 @@ var promptsDatabase = {
     ],
     withdrawals: [
       { text: 'List pending withdrawal requests', difficulty: 'easy' },
-      { text: 'Process the withdrawal request from our instructor Emma for £450', difficulty: 'intermediate' }
+      { text: 'Approve withdrawal #5 for Sarah', difficulty: 'easy' },
+      { text: 'Show me all pending instructor withdrawal requests with amounts. Which ones are ready to process?', difficulty: 'intermediate' },
+      { text: 'Process the withdrawal request from our instructor Emma for £450 and confirm it\'s been sent', difficulty: 'intermediate' }
     ],
     notifications: [
       { text: 'Send a reminder email to all customers about next weekend\'s classes', difficulty: 'intermediate' },
