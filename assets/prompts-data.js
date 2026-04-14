@@ -47,6 +47,18 @@ var promptsDatabase = {
       { text: 'Show my profile', difficulty: 'easy' },
       { text: 'Update my phone number', difficulty: 'easy' },
       { text: 'My new phone is 07700 900123. Can you update my profile?', difficulty: 'easy' }
+    ],
+    'meeting-rooms': [
+      { text: 'Show me all the meeting rooms we offer', difficulty: 'easy' },
+      { text: 'What meeting rooms are available this Friday afternoon?', difficulty: 'intermediate' },
+      { text: 'Book Studio A for a 2-hour training session on 2026-05-10 starting at 10am, 12 attendees', difficulty: 'intermediate' },
+      { text: 'I need a quiet room for a 30-minute interview tomorrow afternoon — what\'s free?', difficulty: 'intermediate' },
+      { text: 'Book the small meeting room every Tuesday 9am-11am for the next 8 weeks — team catch-up, 6 attendees', difficulty: 'advanced' },
+      { text: 'Reserve the main hall for our monthly community event on the first Saturday of every month for the next 6 months, 10am-1pm', difficulty: 'advanced' },
+      { text: 'Show my upcoming meeting room bookings', difficulty: 'easy' },
+      { text: 'Cancel my room booking for Thursday', difficulty: 'easy' },
+      { text: 'I want to book Studio B for a workshop: Saturday 2pm for 3 hours, 20 people, purpose is training', difficulty: 'intermediate' },
+      { text: 'Do any of the meeting rooms use JustGiving donations instead of a fixed price?', difficulty: 'easy' }
     ]
   },
 
@@ -129,6 +141,14 @@ var promptsDatabase = {
       { text: 'Send a notification about our summer schedule to all customers. Preview first to confirm who\'s included.', difficulty: 'intermediate' },
       { text: 'Send this message: Subject: \'Summer Camp - Final Places Available\', to all customers who haven\'t booked yet. Preview it first, then I\'ll confirm and you send.', difficulty: 'advanced' },
       { text: 'Send a thank you note to everyone who attended last month', difficulty: 'intermediate' }
+    ],
+    'meeting-rooms': [
+      { text: 'List all our meeting rooms and their pricing', difficulty: 'easy' },
+      { text: 'Show all room-hire bookings for next week', difficulty: 'intermediate' },
+      { text: 'Which meeting room is most booked this month?', difficulty: 'intermediate' },
+      { text: 'Show me any room bookings that still need payment', difficulty: 'easy' },
+      { text: 'Cancel the block booking #45 and process a refund', difficulty: 'advanced' },
+      { text: 'Book Studio A on behalf of Jane (user #42): Thursday 10am, 2 hours, purpose "meeting", 8 attendees', difficulty: 'advanced' }
     ]
   },
 
@@ -186,6 +206,27 @@ var promptsDatabase = {
       { text: 'Show current payment settings', difficulty: 'easy' },
       { text: 'Update Stripe public key', difficulty: 'easy' },
       { text: 'We\'ve migrated to a new Stripe account. Update the API keys to: public=[key], secret=[key]', difficulty: 'intermediate' }
+    ],
+    'meeting-rooms': [
+      { text: 'Show me all room-hire revenue for this quarter', difficulty: 'intermediate' },
+      { text: 'Which meeting rooms are on JustGiving pricing vs fixed rates?', difficulty: 'easy' },
+      { text: 'Process refunds for any cancelled block bookings in the past month', difficulty: 'advanced' }
+    ],
+    'discount-codes': [
+      { text: 'List all discount codes', difficulty: 'easy' },
+      { text: 'Create a global 10% off code called SUMMER10', difficulty: 'easy' },
+      { text: 'Create a £5 off code for the Boxing activity only', difficulty: 'intermediate' },
+      { text: 'Create a discount that auto-applies to all instructors — 20% off everything', difficulty: 'intermediate' },
+      { text: 'Create a code that gives 15% off, but only valid for the Yoga or Pilates activities at the HQ venue', difficulty: 'advanced' },
+      { text: 'Set up a "third child free" auto-discount for parent accounts', difficulty: 'intermediate' },
+      { text: 'Create a bulk-session discount: every 5th session free for any activity', difficulty: 'intermediate' },
+      { text: 'Make a code that auto-applies for staff at our Bellshill venue only', difficulty: 'advanced' },
+      { text: 'Set up a personal 50% off code for user #42 on Yoga sessions', difficulty: 'advanced' },
+      { text: 'Create a room-hire-only discount: 25% off any meeting room booking', difficulty: 'intermediate' },
+      { text: 'Show me which discount codes have been used the most', difficulty: 'easy' },
+      { text: 'Deactivate the SUMMER10 code', difficulty: 'easy' },
+      { text: 'Update the WINTER25 code to expire on 2026-12-31', difficulty: 'easy' },
+      { text: 'Delete any unused discount codes that are older than 6 months', difficulty: 'advanced' }
     ]
   }
 

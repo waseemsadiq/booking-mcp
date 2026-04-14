@@ -528,6 +528,8 @@ function categoryLabel(cat) {
     withdrawals: "Withdrawals",
     notifications: "Notifications",
     payments: "Payment Settings",
+    "discount-codes": "Discount Codes",
+    "meeting-rooms": "Meeting Rooms",
   };
   return labels[cat] || cat;
 }
