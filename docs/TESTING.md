@@ -5,7 +5,7 @@
 Galvani must be running:
 
 ```bash
-# From /Users/waseem/Sites/www/
+# From the directory that contains booking/
 ./galvani
 # Site at: http://localhost:8080/booking/mcp/booking-mcp-docs/
 ```

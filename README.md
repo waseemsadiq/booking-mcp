@@ -21,7 +21,7 @@ Live at: **[booking-mcp-docs.wellfoundation.org.uk](https://booking-mcp-docs.wel
 Requires Galvani running from the git root:
 
 ```bash
-# From /Users/waseem/Sites/www/
+# From the directory that contains booking/
 ./galvani
 
 # Site available at:
